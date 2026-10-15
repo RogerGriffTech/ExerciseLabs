@@ -90,17 +90,17 @@ Challenge: Do not use an unsafe direct .toInt on untrusted input.
 //    case n: NumberFormatException => count += 1
 //  }
 //  )
-  import scala.util.Try
-  import scala.collection.mutable.ListBuffer
-  val buf = ListBuffer[String]()
- val success_list = parse_list.map(value => try{value.toInt}
-  catch{
-    case n: NumberFormatException => {
-      count += 1
+//  import scala.util.Try
+//  import scala.collection.mutable.ListBuffer
+//  val buf = ListBuffer[String]()
+// val success_list = parse_list.map(value => try{value.toInt}
+//  catch{
+//    case n: NumberFormatException => {
+//      count += 1
 
-    }
-  })
-println(success_list)
+//    }
+// })
+//println(success_list)
 //  import scala.util.Try
 //  val parsed_success = parse_list.map(value => Try{toInt(value).isSuccess()})
 //  println(parsed_success)
