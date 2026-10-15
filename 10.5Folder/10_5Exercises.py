@@ -164,9 +164,12 @@ trans_large = spark.read.csv("transactions_large.csv", header=True, inferSchema=
 # employee.withColumn("salary_rank", rank().over(wind)).show()
 
 # 3.
-wind = Window.partitionBy("transaction_date").orderBy("amount")
-trans_large.withColumn("rolling_avg", avg("amount").over(wind)).show()
+# wind = Window.partitionBy("transaction_date").orderBy("amount")
+# trans_large.withColumn("rolling_avg", avg("amount").over(wind)).show()
+
 # 4.
 # employee.join(\
 #     broadcast(department), \
 #         on=employee["department"] == department["dept_name"]).show()
+
+# 5.

@@ -1,0 +1,42 @@
+[
+  {
+    "customer_id": 1,
+    "first_name": "Olivia",
+    "last_name": "Martinez",
+    "email": "olivia.martinez@example.com",
+    "city": "New York",
+    "state": "NY"
+  },
+  {
+    "customer_id": 2,
+    "first_name": "Liam",
+    "last_name": "Johnson",
+    "email": "liam.johnson@example.com",
+    "city": "Atlanta",
+    "state": "GA"
+  },
+  {
+    "customer_id": 3,
+    "first_name": "Sophia",
+    "last_name": "Chen",
+    "email": "sophia.chen@example.com",
+    "city": "Chicago",
+    "state": "IL"
+  },
+  {
+    "customer_id": 4,
+    "first_name": "Noah",
+    "last_name": "Patel",
+    "email": "noah.patel@example.com",
+    "city": "Austin",
+    "state": "TX"
+  },
+  {
+    "customer_id": 5,
+    "first_name": "Ava",
+    "last_name": "Williams",
+    "email": "ava.williams@example.com",
+    "city": "Seattle",
+    "state": "WA"
+  }
+]
