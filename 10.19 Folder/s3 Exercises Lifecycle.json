@@ -1,0 +1,13 @@
+{
+  "Rules": [{
+    "ID": "data-tiering",
+    "Status": "Enabled",
+    "Filter": { "Prefix": "" },
+    "Transitions": [
+      { "Days": 30, "StorageClass": "STANDARD_IA" },
+      { "Days": 365, "StorageClass": "GLACIER_IR" },
+      { "Days": 720, "StorageClass": "DEEP_ARCHIVE" }
+    ],
+    "Expiration": { "Days": 2555 }
+  }]
+}

@@ -1,0 +1,69 @@
+Section A: Basics
+1. What type of storage does Amazon S3 provide: Block, File, or Object?
+    Object
+
+2. What is the minimum number of S3 buckets you can create in AWS?
+    You don't have to make any S3 buckets if you want to use something else, but if you want to use S3 specifically, you must create at least 1.
+
+3. Write the CLI command to create a bucket named de-course-bucket.
+    aws s3api create-bucket --bucket de-course-bucket --region us-east-1
+
+4.
+How do you upload a file named data.csv into an S3 bucket using CLI?
+    aws s3 cp <path to your data.csv file> <key for your s3 bucket> --storage-class <whatever storage level you want>
+
+5.
+What’s the difference between an object key and an object URL ?
+    The object key is how AWS identifies your object, the object URL is the web address used to access the object.
+
+
+Section B: Core Operations
+1. Create an S3 bucket called student-data-lake in region us-east-1.
+    aws s3api create-bucket --bucket students-data-lake-roger --region us-east-1
+
+2.
+Upload the provided students.csv file into the bucket.
+     aws s3 cp "C:\Users\Roger Griffin\Documents\Exercises\ExerciseLabs\10.19 Folder\students.csv" s3://students-data-lake-roger/
+3.
+Download the uploaded file back into your local machine using CLI.
+    aws s3 cp s3://students-data-lake-roger/ "C:\Users\Roger Griffin\Documents\Exercises\ExerciseLabs\10.19 Folder\students1.csv"
+
+4.Enable versioning on the bucket and upload the modified students.csv again.
+    aws s3api put-bucket-versioning --bucket students-data-lake-roger --versioning-configuration Status=Enabled
+5.
+Verify that both versions exist.
+    aws s3api list-object-versions --bucket students-data-lake-roger
+
+Section C: Storage Classes & Lifecycle
+1. Set a lifecycle policy to:
+○ Move objects older than 30 days to Standard-IA
+○ Move objects older than 365 days to Glacier
+    aws s3api put-bucket-lifecycle-configuration --bucket students-data-lake-roger --lifecycle-configuration "file://C:\Users\Roger Griffin\Documents\Exercises\ExerciseLabs\10.19 Folder\s3 Exercises Lifecycle.json"
+    aws s3api put-bucket-lifecycle-configuration --bucket s3-example-bucket-roger --lifecycle-configuration "file://C:/Users/Roger Griffin/Documents/notes/10.13Folder/lifecycle.json"
+
+
+2.
+Upload the logs.json file and simulate lifecycle transition using CLI.
+aws s3 cp "C:\Users\Roger Griffin\Documents\Exercises\ExerciseLabs\10.19 Folder\logs.json" s3://students-data-lake-roger/
+
+3.
+Compare Standard vs Intelligent-Tiering classes.
+Intelligent-tiering classes are going to be more expensive, but it will change the tier of your file automatically if needed. This is considered the "set it and forget it" mode
+Standard is your fastest, but most expensive tier of file.
+
+
+Section D: Security
+1.Create a bucket policy that makes all objects in student-data-lake readable by the public.
+aws s3api put-bucket-policy --bucket students-data-lake-roger --policy "file://C:\Users\Roger Griffin\Documents\Exercises\ExerciseLabs\10.19 Folder\s3 Bucket Policy"
+
+2.
+Modify the policy to allow only a specific IAM role to read/write.
+We dont have IAM permissions still
+
+3.
+Enable server-side encryption (SSE-S3) on your bucket.
+    it was already enabled
+
+4.
+What’s the difference between SSE-S3, SSE-KMS and SSE-C?
+    SSE stands for Server Side Encryption, after the - is where the key is. SSE-S3 is S3 managing the keys for you, KMS is a Key Management System and C is a combination of the two.
