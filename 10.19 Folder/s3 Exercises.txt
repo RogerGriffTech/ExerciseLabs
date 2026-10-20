@@ -39,8 +39,7 @@ Section C: Storage Classes & Lifecycle
 ○ Move objects older than 30 days to Standard-IA
 ○ Move objects older than 365 days to Glacier
     aws s3api put-bucket-lifecycle-configuration --bucket students-data-lake-roger --lifecycle-configuration "file://C:\Users\Roger Griffin\Documents\Exercises\ExerciseLabs\10.19 Folder\s3 Exercises Lifecycle.json"
-    aws s3api put-bucket-lifecycle-configuration --bucket s3-example-bucket-roger --lifecycle-configuration "file://C:/Users/Roger Griffin/Documents/notes/10.13Folder/lifecycle.json"
-
+    
 
 2.
 Upload the logs.json file and simulate lifecycle transition using CLI.
